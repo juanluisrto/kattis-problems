@@ -1,0 +1,146 @@
+
+
+/*
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Product implements Comparable<Product> {
+    private String name;
+    private String brand;
+    private int type;
+
+    public Product(String name, String brand, int type) {
+        this.name = name;
+        this.brand = brand;
+        this.type = type;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
+    }
+
+    @Override
+    public int compareTo(Product other) {
+        int result = this.getName().compareTo(other.getName());
+        if (result == 0) //checks
+            result = other.getBrand().compareTo(this.getBrand());
+        if (result == 0)
+            result = other.getType() > this.getType() ? 1 : -1;
+        return result;
+    }
+}
+
+    public static void main(String[] args) {
+        for (int i = 332; i > 1; i = i - 4) {
+            System.out.println(i);
+        }
+    }
+
+        public String ReverseWordsInString(String input) {
+        String[] wordArray = input.split(" ");
+        String result = "";
+        for (int i = wordArray.length - 1; i >= 0; i--) {
+            result += wordArray[i] + " ";
+        }
+        return result;
+    }
+
+        public static void main(String[] args) {
+        List<Product> products= new ArrayList<Product>();
+
+        products.add(new Product("Watch","Apple",3));
+        products.add(new Product("Computer","HP",1));
+        products.add(new Product("Ipad","Apple",2));
+        products.add(new Product("Ipod","Apple",3));
+        products.add(new Product("Ipod","Apple",1));
+        products.add(new Product("Watch","Rolex",4));
+        products.add(new Product("Computer","Dell",1));
+        products.add(new Product("Mouse","Logitec",5));
+        products.add(new Product("Keyboard","Logitec",5));
+        products.add(new Product("Computer","HP",5));
+
+        Collections.sort(products);
+
+        products.forEach(item->System.out.println(item.getName()+" "+item.getBrand()+" "+item.getType()));
+
+    }
+
+     */
+
+
+
+
+public class Primes {
+    ArrayList<Integer> primes = new ArrayList<>();
+
+    public void alternatingPrimeNumberWriter(int max) {
+        boolean divisible = false; //divisible = false in the beggining to include 3 in the prime list
+        for (int i = 3; i <= max; i = i + 2) { //the step is 2 to avoid all even numbers
+            for (int prime : primes) {
+                divisible = i % prime == 0;
+                if (divisible)
+                    break;
+            }
+            if(divisible == false)
+                primes.add(i);
+        }
+        for (int first = 0, last = primes.size() - 1; first <= last; first++, last--) {
+            System.out.println(primes.get(first));
+            System.out.println(primes.get(last));
+        }
+    }
+}
+
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Predicate;
+
+public class ClassWithItems<T> {
+    public T[] items;
+
+    public ClassWithItems(Iterable<T> items) {
+        ArrayList<T> list =new ArrayList<>();
+        items.forEach(item -> list.add(item));
+        setItems((T[]) list.toArray(new Object[list.size()]));
+    }
+
+    public void WriteTheNumberOfItemsThatSatisfyTheFilterToTheConsole(Predicate<T> filter) {
+        int count = 0;
+        for (T item : items){
+            if(filter.test(item))
+                count++;
+        }
+        System.out.println(count);
+    }
+
+    public T[] getItems() {
+        return items;
+    }
+
+    private void setItems(T[] item) {
+        items = item;
+    }
+}

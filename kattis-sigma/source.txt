@@ -1,0 +1,12 @@
+3
+red 10
+10 blue
+green 7
+
+
+logic('U',input[0],input[1])
+
+		return 0
+	else:
+		return  #True gets value 1 and False -1
+			if X0 is P: 0 ? X1 is not P
